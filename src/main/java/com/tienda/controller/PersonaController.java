@@ -56,10 +56,17 @@ public class PersonaController {
     @GetMapping("/editPersona/{id}")
     public String editarPersona(@PathVariable("id") Long idPersona, Model model) {
         Persona persona = personaService.getPersonaById(idPersona);
-        List<Pais> listaPaises = paisService.listCountry();
+        List<Pais> listaPais = paisService.listCountry();
         model.addAttribute("persona", persona);
-        model.addAttribute("paises", listaPaises);
+        model.addAttribute("paises", listaPais);
         return "crear";
-
     }
-}
+    @GetMapping("/verPersona/{id}")
+    public String buscarPersona(@PathVariable("apellido1") String apellido1Persona, Model model) {
+        Persona persona = personaService.findByApellido1( apellido1Persona);
+        List<Pais> listaPais = paisService.listCountry();
+        model.addAttribute("persona", persona);
+        model.addAttribute("paises", listaPais);
+        return "ver";
+        
+}}
