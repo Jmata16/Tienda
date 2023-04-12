@@ -12,7 +12,7 @@
             <div class "card-body">
 
                 <!<!------------------------ Esto es un formulario ------------------------>
-                <form th:object ="${persona}"
+                <form th:object ="${co}"
                       th:action ="@{/save}"
                       method="POST">
                     <input type="hidden" th:field="*{id}">
